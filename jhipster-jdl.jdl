@@ -1,7 +1,7 @@
 entity Artinc {
      id Integer,
      pelig String,
-     descrip String maxlength(1000000)
+     descrip String maxlength(10000)
 }
 
 entity Categorias {
@@ -26,10 +26,10 @@ entity Tematicas {
 
 entity Preguntas {
 	id Integer,
-    texto String maxlength(1000000),
-    resp1 String,
-    resp2 String,
-    resp3 String,
+    texto String maxlength(10000),
+    resp1 String maxlength(10000),
+    resp2 String maxlength(10000),
+    resp3 String maxlength(10000),
     correcta Integer,
     usada Boolean,
 }

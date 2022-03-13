@@ -1,0 +1,27 @@
+{
+  "transitoApp": {
+    "artinc": {
+      "home": {
+        "title": "Artincs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Artinc",
+        "createOrEditLabel": "Create or edit a Artinc",
+        "notFound": "No Artincs found"
+      },
+      "created": "A new Artinc is created with identifier {{ param }}",
+      "updated": "A Artinc is updated with identifier {{ param }}",
+      "deleted": "A Artinc is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Artinc {{ id }}?"
+      },
+      "detail": {
+        "title": "Artinc"
+      },
+      "id": "Id",
+      "artinc": "Artinc",
+      "pelig": "Pelig",
+      "descrip": "Descrip",
+      "pregunta": "Pregunta"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+org.springframework.boot
+spring-boot-starter-jdbc
+
+net.sf.ucanaccess
+ucanaccess
+4.0.4
+
+spring.datasource.url: jdbc:ucanaccess://D:/project/transito/bdTransitoTests.accdb;openExclusive=false;ignoreCase=true
+spring.datasource.driver-class-name: net.ucanaccess.jdbc.UcanaccessDriver

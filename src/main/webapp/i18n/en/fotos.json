@@ -1,0 +1,28 @@
+{
+  "transitoApp": {
+    "fotos": {
+      "home": {
+        "title": "Fotos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Fotos",
+        "createOrEditLabel": "Create or edit a Fotos",
+        "notFound": "No Fotos found"
+      },
+      "created": "A new Fotos is created with identifier {{ param }}",
+      "updated": "A Fotos is updated with identifier {{ param }}",
+      "deleted": "A Fotos is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Fotos {{ id }}?"
+      },
+      "detail": {
+        "title": "Fotos"
+      },
+      "id": "Id",
+      "nro": "Nro",
+      "foto": "Foto",
+      "foto1": "Foto 1",
+      "foto2": "Foto 2",
+      "foto3": "Foto 3"
+    }
+  }
+}

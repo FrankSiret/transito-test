@@ -1,0 +1,33 @@
+{
+  "transitoApp": {
+    "preguntas": {
+      "home": {
+        "title": "Preguntas",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Preguntas",
+        "createOrEditLabel": "Create or edit a Preguntas",
+        "notFound": "No Preguntas found"
+      },
+      "created": "A new Preguntas is created with identifier {{ param }}",
+      "updated": "A Preguntas is updated with identifier {{ param }}",
+      "deleted": "A Preguntas is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Preguntas {{ id }}?"
+      },
+      "detail": {
+        "title": "Preguntas"
+      },
+      "id": "Id",
+      "nro": "Nro",
+      "texto": "Texto",
+      "resp1": "Resp 1",
+      "resp2": "Resp 2",
+      "resp3": "Resp 3",
+      "correcta": "Correcta",
+      "usada": "Usada",
+      "puesto": "Puesto",
+      "tematica": "Tematica",
+      "artinc": "Artinc"
+    }
+  }
+}

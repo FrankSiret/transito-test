@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Preguntas.
+    -->
+    <changeSet id="20220117010738-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="tematica_id"
+                                 baseTableName="preguntas"
+                                 constraintName="fk_preguntas__tematica_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tematicas"/>
+
+        <addForeignKeyConstraint baseColumnNames="artinc_artinc"
+                                 baseTableName="preguntas"
+                                 constraintName="fk_preguntas__artinc_artinc"
+                                 referencedColumnNames="artinc"
+                                 referencedTableName="artinc"/>
+        
+        <addForeignKeyConstraint baseColumnNames="foto_nro"
+                                 baseTableName="preguntas"
+                                 constraintName="fk_preguntas__foto_nro"
+                                 referencedColumnNames="nro"
+                                 referencedTableName="foto"/>
+    </changeSet>
+</databaseChangeLog>

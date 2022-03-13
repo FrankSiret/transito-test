@@ -1,0 +1,46 @@
+entity Artinc {
+     id Integer,
+     pelig String,
+     descrip String maxlength(1000000)
+}
+
+entity Categorias {
+	id Integer,
+    tipo String,
+    descrip String
+}
+
+entity Fotos {
+	id Integer,
+    foto Blob,
+    foto1 Blob,
+    foto2 Blob,
+    foto3 Blob
+}
+
+entity Tematicas {
+	id Integer,
+	descrip String,
+	cantidad Integer
+}
+
+entity Preguntas {
+	id Integer,
+    texto String maxlength(1000000),
+    resp1 String,
+    resp2 String,
+    resp3 String,
+    correcta Integer,
+    usada Boolean,
+}
+
+relationship ManyToOne {
+	Preguntas{tematica} to Tematicas{pregunta}
+	Preguntas{artinc} to Artinc{pregunta}
+	Preguntas{foto} to Foto{pregunta}
+}
+
+dto * with mapstruct
+paginate * with pagination
+service * with serviceClass
+filter *

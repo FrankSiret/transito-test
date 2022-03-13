@@ -14,13 +14,14 @@
     <property name="datetimeType" value="datetime(6)" dbms="mysql, mariadb"/>
     <property name="datetimeType" value="datetime" dbms="oracle, mssql, postgresql, h2"/>
 
-    <include file="config/liquibase/changelog/20220117010734_added_entity_Artinc.xml" relativeToChangelogFile="false"/>
+    <!-- <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/> -->
+    <!-- <include file="config/liquibase/changelog/20220117010734_added_entity_Artinc.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20220117010735_added_entity_Categorias.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20220117010736_added_entity_Fotos.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20220117010737_added_entity_Tematicas.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20220117010738_added_entity_Preguntas.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220117010738_added_entity_Preguntas.xml" relativeToChangelogFile="false"/> -->
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
-    <include file="config/liquibase/changelog/20220117010738_added_entity_constraints_Preguntas.xml" relativeToChangelogFile="false"/>
+    <!-- <include file="config/liquibase/changelog/20220117010738_added_entity_constraints_Preguntas.xml" relativeToChangelogFile="false"/> -->
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

@@ -2,12 +2,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import './app.scss';
 import 'app/config/dayjs.ts';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Layout } from 'antd';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
-import { useAppSelector } from 'app/config/store';
 import ErrorBoundary from 'app/shared/error/error-boundary';
 import AppRoutes from 'app/routes';
 import AppMenu from './shared/layout/menu';
@@ -17,13 +16,6 @@ const baseHref = document.querySelector('base').getAttribute('href').replace(/\/
 const { Content, Footer } = Layout;
 
 export const App = () => {
-  
-  useEffect(() => {
-  }, []);
-
-  const currentLocale = useAppSelector(state => state.locale.currentLocale);
-  
-  const paddingTop = '60px';
   return (
     <Router basename={baseHref}>
       <Layout className="app">

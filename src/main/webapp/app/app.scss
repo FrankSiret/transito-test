@@ -24,6 +24,12 @@
     }
   }
 
+  @media screen and (max-width: 750px) {
+    &-page {
+      width: 95%;
+    }
+  }
+
   &-footer {
     text-align: center;
   }

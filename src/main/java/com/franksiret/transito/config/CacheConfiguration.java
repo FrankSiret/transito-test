@@ -43,6 +43,11 @@ public class CacheConfiguration {
     @Bean
     public JCacheManagerCustomizer cacheManagerCustomizer() {
         return cm -> {
+            createCache(cm, com.franksiret.transito.repository.UserRepository.USERS_BY_LOGIN_CACHE);
+            createCache(cm, com.franksiret.transito.repository.UserRepository.USERS_BY_EMAIL_CACHE);
+            createCache(cm, com.franksiret.transito.domain.User.class.getName());
+            createCache(cm, com.franksiret.transito.domain.Authority.class.getName());
+            createCache(cm, com.franksiret.transito.domain.User.class.getName() + ".authorities");
             createCache(cm, com.franksiret.transito.domain.Artinc.class.getName());
             createCache(cm, com.franksiret.transito.domain.Categorias.class.getName());
             createCache(cm, com.franksiret.transito.domain.Fotos.class.getName());

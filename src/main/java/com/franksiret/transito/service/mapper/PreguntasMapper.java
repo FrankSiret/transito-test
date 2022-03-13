@@ -9,16 +9,14 @@ import org.mapstruct.*;
  */
 @Mapper(componentModel = "spring", uses = { FotosMapper.class, TematicasMapper.class, ArtincMapper.class })
 public interface PreguntasMapper extends EntityMapper<PreguntasDTO, Preguntas> {
-    
     @Mapping(target = "foto", source = "foto")
     @Mapping(target = "tematica", source = "tematica")
     @Mapping(target = "artinc", source = "artinc")
     PreguntasDTO toDto(Preguntas s);
-    
+
     @Named("id")
     @Mapping(target = "foto", source = "foto", ignore = true)
-    @Mapping(target = "tematica", source = "tematica", ignore = true)
+    @Mapping(target = "tematica", source = "tematica", qualifiedByName = "id")
     @Mapping(target = "artinc", source = "artinc", ignore = true)
     PreguntasDTO toDtoId(Preguntas s);
-
 }

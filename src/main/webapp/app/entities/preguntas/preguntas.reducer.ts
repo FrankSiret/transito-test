@@ -21,9 +21,14 @@ const apiUrl = 'api/preguntas';
 
 export const getEntities = createAsyncThunk('preguntas/fetch_entity_list', async ({ page, size, sort, query }: IQueryParams) => {
   const q = [];
-  if(sort) q.push(`page=${page}&size=${size}&sort=${sort}`);
-  if(query) q.push(query);
+  if (sort) q.push(`page=${page}&size=${size}&sort=${sort}`);
+  if (query) q.push(query);
   const requestUrl = `${apiUrl}${sort ? `?${q.join('&')}&` : '?'}cacheBuster=${new Date().getTime()}`;
+  return axios.get<IPreguntas[]>(requestUrl);
+});
+
+export const getTest = createAsyncThunk('preguntas/fetch_test', async () => {
+  const requestUrl = `${apiUrl}/test`;
   return axios.get<IPreguntas[]>(requestUrl);
 });
 

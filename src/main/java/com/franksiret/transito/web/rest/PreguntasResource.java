@@ -34,10 +34,7 @@ public class PreguntasResource {
 
     private final PreguntasQueryService preguntasQueryService;
 
-    public PreguntasResource(
-        PreguntasService preguntasService,
-        PreguntasQueryService preguntasQueryService
-    ) {
+    public PreguntasResource(PreguntasService preguntasService, PreguntasQueryService preguntasQueryService) {
         this.preguntasService = preguntasService;
         this.preguntasQueryService = preguntasQueryService;
     }
@@ -133,6 +130,18 @@ public class PreguntasResource {
     // }
 
     /**
+     * {@code GET  /preguntas/tematica/:id} : get all the preguntas.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of preguntas in body.
+     */
+    @GetMapping("/preguntas/test")
+    public ResponseEntity<List<PreguntasDTO>> getAllPreguntasTest() {
+        log.debug("REST request to get Test");
+        List<PreguntasDTO> test = preguntasQueryService.findTest();
+        return ResponseEntity.ok().body(test);
+    }
+
+    /**
      * {@code GET  /preguntas} : get all the preguntas.
      *
      * @param pageable the pagination information.
@@ -174,7 +183,6 @@ public class PreguntasResource {
         Optional<PreguntasDTO> preguntasDTO = preguntasService.findOne(id);
         return ResponseUtil.wrapOrNotFound(preguntasDTO);
     }
-
     // /**
     //  * {@code DELETE  /preguntas/:id} : delete the "id" preguntas.
     //  *

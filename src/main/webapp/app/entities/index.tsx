@@ -10,6 +10,7 @@ import Fotos from './fotos';
 import Tematicas from './tematicas';
 import Preguntas from './preguntas';
 import Temario from './temario/intex';
+import TransitoTest from './transito-test/intex';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 const Routes = ({ match }) => (
@@ -22,6 +23,7 @@ const Routes = ({ match }) => (
       <ErrorBoundaryRoute path={`${match.url}tematicas`} component={Tematicas} />
       <ErrorBoundaryRoute path={`${match.url}preguntas`} component={Preguntas} />
       <ErrorBoundaryRoute path={`${match.url}temario`} component={Temario} />
+      <ErrorBoundaryRoute path={`${match.url}test`} component={TransitoTest} />
       {/* jhipster-needle-add-route-path - JHipster will add routes here */}
     </Switch>
   </div>

@@ -1,6 +1,5 @@
-.temario {
+.transito-test {
   width: 100%;
-
   .radio-group {
     display: flex;
     flex-direction: column;
@@ -31,9 +30,16 @@
       flex-direction: column;
       flex-flow: column-reverse;
     }
+    .steps {
+      display: none;
+    }
   }
 
   .select {
     width: 200px;
+  }
+
+  .steps {
+    margin-bottom: 1rem;
   }
 }

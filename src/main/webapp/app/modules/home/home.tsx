@@ -9,14 +9,13 @@ import { useAppSelector } from 'app/config/store';
 import { Button } from 'antd';
 
 export const Home = () => {
-  
   return (
     <Row>
       <Col md="9">
-        <h2>
-          Welcome
-        </h2>
-        <Link to={'/temario'}><Button type='primary'>Start test</Button></Link>
+        <h2>Welcome</h2>
+        <Link to={'/test'}>
+          <Button type="primary">Start test</Button>
+        </Link>
       </Col>
     </Row>
   );

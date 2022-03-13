@@ -1,5 +1,7 @@
 package com.franksiret.transito.config;
 
+import com.franksiret.transito.security.*;
+import com.franksiret.transito.security.jwt.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpMethod;
@@ -24,14 +26,26 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final JHipsterProperties jHipsterProperties;
 
+    private final TokenProvider tokenProvider;
+
+    private final CorsFilter corsFilter;
     private final SecurityProblemSupport problemSupport;
 
     public SecurityConfiguration(
+        TokenProvider tokenProvider,
+        CorsFilter corsFilter,
         JHipsterProperties jHipsterProperties,
         SecurityProblemSupport problemSupport
     ) {
+        this.tokenProvider = tokenProvider;
+        this.corsFilter = corsFilter;
         this.problemSupport = problemSupport;
         this.jHipsterProperties = jHipsterProperties;
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
     @Override
@@ -52,6 +66,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
             .csrf()
             .disable()
+            .addFilterBefore(corsFilter, UsernamePasswordAuthenticationFilter.class)
             .exceptionHandling()
                 .authenticationEntryPoint(problemSupport)
                 .accessDeniedHandler(problemSupport)
@@ -69,8 +84,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .sessionManagement()
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
         .and()
-            .httpBasic();
+            .authorizeRequests()
+            .antMatchers("/api/authenticate").permitAll()
+            .antMatchers("/api/admin/**").hasAuthority(AuthoritiesConstants.ADMIN)
+            .antMatchers("/api/**").permitAll()
+            .antMatchers("/management/info").permitAll()
+            .antMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN)
+        .and()
+            .httpBasic()
+        .and()
+            .apply(securityConfigurerAdapter());
         // @formatter:on
     }
 
+    private JWTConfigurer securityConfigurerAdapter() {
+        return new JWTConfigurer(tokenProvider);
+    }
 }

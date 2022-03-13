@@ -114,10 +114,7 @@ public class PreguntasQueryService extends QueryService<Preguntas> {
             if (criteria.getFotoId() != null) {
                 specification =
                     specification.and(
-                        buildSpecification(
-                            criteria.getFotoId(),
-                            root -> root.join(Preguntas_.foto, JoinType.LEFT).get(Fotos_.id)
-                        )
+                        buildSpecification(criteria.getFotoId(), root -> root.join(Preguntas_.foto, JoinType.LEFT).get(Fotos_.id))
                     );
             }
             if (criteria.getTematicaId() != null) {
@@ -137,5 +134,11 @@ public class PreguntasQueryService extends QueryService<Preguntas> {
             }
         }
         return specification;
+    }
+
+    @Transactional(readOnly = true)
+    public List<PreguntasDTO> findTest() {
+        log.debug("find test");
+        return preguntasMapper.toDto(preguntasRepository.findByTematicaRand());
     }
 }

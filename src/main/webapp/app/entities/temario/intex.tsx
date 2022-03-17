@@ -3,7 +3,7 @@ import { Alert, Button, Image, Radio, Space, Spin, Tag, notification, Divider, S
 import Text from 'antd/lib/typography/Text';
 import Title from 'antd/lib/typography/Title';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { byteSize, openFile } from 'react-jhipster';
 import { toast } from 'react-toastify';
 import { getEntities, getEntity } from '../preguntas/preguntas.reducer';
@@ -24,6 +24,12 @@ const Temario = () => {
   const [id, setId] = useState<number>();
   const [answer, setAnswer] = useState<number>(null);
   const [showSol, setShowSol] = useState(false);
+
+  const divRef: React.Ref<HTMLDivElement> = useRef();
+
+  useEffect(() => {
+    divRef.current?.focus();
+  }, [divRef.current]);
 
   useEffect(() => {
     dispatch(getTematicas({ page: 0, size: 50, sort: 'id,asc' }));
@@ -77,9 +83,12 @@ const Temario = () => {
   const check = () => {
     if (answer === pregunta.correcta) toast.success('Corrent answer');
     else toast.error('Invalid answer');
-
     show();
   };
+
+  useEffect(() => {
+    answer > 0 && divRef.current?.focus();
+  }, [answer]);
 
   const openNotificationWithIcon = type => {
     notification[type]({
@@ -92,9 +101,24 @@ const Temario = () => {
     setTematica(v);
   };
 
+  const handleKeyPress = useCallback(
+    event => {
+      if (event.key === 'ArrowRight') next();
+      else if (event.key === 'ArrowLeft') prev();
+    },
+    [index, answer, showSol]
+  );
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyPress);
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [handleKeyPress]);
+
   return (
     <Space direction="vertical" className="temario">
-      {loading || !pregunta.nro ? (
+      {!pregunta.nro ? (
         <Spin>
           <Alert message="Loading..." />
         </Spin>
@@ -122,10 +146,9 @@ const Temario = () => {
           <Space align="start" className="space space-media">
             <Space direction="vertical">
               <Title level={5}>{pregunta.texto}</Title>
-              <Radio.Group name="test" className="radio-group">
+              <Radio.Group name="test" className="radio-group" value={answer} onChange={e => setAnswer(e.target.value)}>
                 <Radio
                   value={1}
-                  onClick={() => setAnswer(1)}
                   className={`${
                     showSol && pregunta.correcta === 1 ? 'radio-success' : showSol && answer !== null && answer === 1 ? 'radio-error' : ''
                   }`}
@@ -134,7 +157,6 @@ const Temario = () => {
                 </Radio>
                 <Radio
                   value={2}
-                  onClick={() => setAnswer(2)}
                   className={`${
                     showSol && pregunta.correcta === 2 ? 'radio-success' : showSol && answer !== null && answer === 2 ? 'radio-error' : ''
                   }`}
@@ -143,7 +165,6 @@ const Temario = () => {
                 </Radio>
                 <Radio
                   value={3}
-                  onClick={() => setAnswer(3)}
                   className={`${
                     showSol && pregunta.correcta === 3 ? 'radio-success' : showSol && answer !== null && answer === 3 ? 'radio-error' : ''
                   }`}
@@ -165,7 +186,7 @@ const Temario = () => {
             <Button onClick={check} type="primary">
               Check
             </Button>
-            <Button onClick={next} icon={<ArrowRightOutlined />}>
+            <Button ref={divRef} onClick={next} icon={<ArrowRightOutlined />}>
               Next
             </Button>
           </Space>

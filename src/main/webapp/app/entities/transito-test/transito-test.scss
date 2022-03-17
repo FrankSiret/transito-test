@@ -42,4 +42,43 @@
   .steps {
     margin-bottom: 1rem;
   }
+
+  .colored-error {
+    .ant-steps-item-icon {
+      border-color: #f75858;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .ant-steps-icon {
+        color: #f75858;
+      }
+    }
+    &.ant-steps-item-active {
+      .ant-steps-item-icon {
+        background: #ff2222;
+        .ant-steps-icon {
+          color: white;
+        }
+      }
+    }
+  }
+  .colored-success {
+    .ant-steps-item-icon {
+      border-color: #61db49;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .ant-steps-icon {
+        color: #61db49;
+      }
+    }
+    &.ant-steps-item-active {
+      .ant-steps-item-icon {
+        background: #53b34a;
+        .ant-steps-icon {
+          color: white;
+        }
+      }
+    }
+  }
 }

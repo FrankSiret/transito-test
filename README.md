@@ -1,4 +1,16 @@
-# transito
+# transito-test
+
+![image](https://user-images.githubusercontent.com/53590759/158721190-8b9873e4-31d0-4368-98c2-4b0b0d01d83f.png)
+
+Practica para tu licencia de conducir. Examen de Conducir Teórico.
+
+- Preguntas aún en contruccion
+- Aprende las señales de tránsito
+- Mira tus errores para poder corregirlos
+
+Creada con fines educativos, open-source
+
+---
 
 This application was generated using JHipster 7.5.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v7.5.0](https://www.jhipster.tech/documentation-archive/v7.5.0).
 
@@ -198,22 +210,7 @@ docker-compose -f src/main/docker/app.yml up -d
 
 For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the docker-compose sub-generator (`jhipster docker-compose`), which is able to generate docker configurations for one or several JHipster applications.
 
-## Continuous Integration (optional)
 
-To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
+## Licence
 
-[jhipster homepage and latest documentation]: https://www.jhipster.tech
-[jhipster 7.5.0 archive]: https://www.jhipster.tech/documentation-archive/v7.5.0
-[using jhipster in development]: https://www.jhipster.tech/documentation-archive/v7.5.0/development/
-[using docker and docker-compose]: https://www.jhipster.tech/documentation-archive/v7.5.0/docker-compose
-[using jhipster in production]: https://www.jhipster.tech/documentation-archive/v7.5.0/production/
-[running tests page]: https://www.jhipster.tech/documentation-archive/v7.5.0/running-tests/
-[code quality page]: https://www.jhipster.tech/documentation-archive/v7.5.0/code-quality/
-[setting up continuous integration]: https://www.jhipster.tech/documentation-archive/v7.5.0/setting-up-ci/
-[node.js]: https://nodejs.org/
-[npm]: https://www.npmjs.com/
-[webpack]: https://webpack.github.io/
-[browsersync]: https://www.browsersync.io/
-[jest]: https://facebook.github.io/jest/
-[leaflet]: https://leafletjs.com/
-[definitelytyped]: https://definitelytyped.org/
+MIT
